@@ -41,8 +41,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: selenium cd
-        run: cd seleniumtest
+        run: ls
       - name: installing selenium
         run: npm i selenium-webdriver
       - name: testing
-        run: node seleniumTest.js
+        run: node seleniumtest.js
