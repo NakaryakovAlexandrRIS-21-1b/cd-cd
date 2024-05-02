@@ -17,6 +17,8 @@ jobs:
         run: npm i
       - name: unit test
         run: npm run test:unit
+      - name: build prj
+        run: npm run build
   docs:
     runs-on: ubuntu-latest
     strategy:
@@ -27,16 +29,19 @@ jobs:
       - name: docs
         if: contains(github.ref, 'release')
         run: ./doxygen /home/alex/WebstormProjects/ci-cd/doxyfile
-      - name: build prj
-        run: npm run build
+
   selenium:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 20.x ]
     steps:
+      - name: Statrting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: selenium cd
-        run: cd .\SportCompetitionsWeb
+        run: cd seleniumtest
       - name: installing selenium
         run: npm i selenium-webdriver
       - name: testing
