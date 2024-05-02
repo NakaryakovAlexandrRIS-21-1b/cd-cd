@@ -17,5 +17,10 @@ jobs:
         run: npm i
       - name: unit test
         run: npm run test:unit
+      - name: docs
+        if: contains(github.ref, 'release')
+        run: ./doxygen /home/alex/WebstormProjects/ci-cd/doxyfile
       - name: build prj
         run: npm run build
+      - name: selenium
+        run: cd .\SportCompetitionsWeb npm i selenium-webdriver node seleniumTest.js

@@ -10,6 +10,7 @@
     "test:unit": "vitest"
   },
   "dependencies": {
+    "selenium-webdriver": "^4.20.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {
