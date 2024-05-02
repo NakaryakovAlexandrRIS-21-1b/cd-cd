@@ -45,4 +45,4 @@ jobs:
       - name: installing selenium
         run: npm i selenium-webdriver
       - name: testing
-        run: node seleniumtest.js
+        run: node seleniumtest/seleniumtest.js
